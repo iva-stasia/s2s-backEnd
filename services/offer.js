@@ -18,7 +18,8 @@ const offerService = {
           select: ['firstName', 'lastName', 'totalReviews', 'averageRating', 'photo', 'professionalSummary', 'FAQ']
         },
         { path: 'subject', select: 'name' },
-        { path: 'category', select: 'appearance' }
+        { path: 'category', select: 'appearance' },
+        { path: 'review' }
       ])
       .lean()
       .exec()
@@ -33,7 +34,7 @@ const offerService = {
   },
 
   createOffer: async (author, authorRole, data) => {
-    const { price, proficiencyLevel, title, description, languages, subject, category, status, FAQ } = data
+    const { price, proficiencyLevel, title, description, languages, subject, category, status, FAQ, reviews } = data
 
     return await Offer.create({
       author,
@@ -46,7 +47,8 @@ const offerService = {
       subject,
       category,
       status,
-      FAQ
+      FAQ,
+      reviews
     })
   },
 
