@@ -4,7 +4,7 @@ const Subject = require('~/models/subject')
 const {
   enums: { MAIN_ROLE_ENUM, SPOKEN_LANG_ENUM, PROFICIENCY_LEVEL_ENUM, OFFER_STATUS_ENUM }
 } = require('~/consts/validation')
-const { USER, SUBJECT, CATEGORY, OFFER } = require('~/consts/models')
+const { USER, SUBJECT, CATEGORY, OFFER, REVIEW } = require('~/consts/models')
 const {
   FIELD_CANNOT_BE_EMPTY,
   ENUM_CAN_BE_ONE_OF,
@@ -109,6 +109,10 @@ const offerSchema = new Schema(
           }
         }
       ]
+    },
+    review: {
+      type: [Schema.Types.ObjectId],
+      ref: REVIEW
     }
   },
   {
