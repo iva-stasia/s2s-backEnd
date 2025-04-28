@@ -19,7 +19,13 @@ const offerService = {
         },
         { path: 'subject', select: 'name' },
         { path: 'category', select: 'appearance' },
-        { path: 'review' }
+        {
+          path: 'review',
+          populate: {
+            path: 'author',
+            select: ['firstName', 'lastName']
+          }
+        }
       ])
       .lean()
       .exec()
