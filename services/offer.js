@@ -18,7 +18,10 @@ const offerService = {
           select: ['firstName', 'lastName', 'totalReviews', 'averageRating', 'photo', 'professionalSummary', 'FAQ']
         },
         { path: 'subject', select: 'name' },
-        { path: 'category', select: 'appearance' },
+        {
+          path: 'category',
+          select: ['appearance', 'name']
+        },
         {
           path: 'review',
           populate: {
